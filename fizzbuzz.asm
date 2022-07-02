@@ -39,18 +39,18 @@ iter:
     cmp rbx, 101
     je end
 
-    ; Check if divisible by 5
-    mov rdx, 0
-    mov rax, rbx
-    mov rcx, 5
-    div rcx
-    cmp rdx, 0
-    jne not_div_5
-
     ; Check if divisible by 3
     mov rdx, 0
     mov rax, rbx
     mov rcx, 3
+    div rcx
+    cmp rdx, 0
+    jne not_div_3
+
+    ; Check if divisible by 5
+    mov rdx, 0
+    mov rax, rbx
+    mov rcx, 5
     div rcx,
     cmp rdx, 0
     jne print_fizz
@@ -75,12 +75,12 @@ print_fizz:
 
     jmp continue
 
-not_div_5:
+not_div_3:
 
-    ; Check if divisible by 3
+    ; Check if divisible by 5
     mov rdx, 0
     mov rax, rbx
-    mov rcx, 3
+    mov rcx, 5
     div rcx,
     cmp rdx, 0
     jne print_num
